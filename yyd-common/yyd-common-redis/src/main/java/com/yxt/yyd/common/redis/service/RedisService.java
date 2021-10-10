@@ -1,4 +1,4 @@
-package com.yxt.yyd.common.base.redis;
+package com.yxt.yyd.common.redis.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -16,11 +16,11 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @author dimengzhe
- * @date 2021/9/3 17:28
+ * @date 2021/10/10 13:10
  * @description
  */
 @Service
-public class RedisUtil {
+public class RedisService {
 
     @Autowired
     private RedisTemplate redisTemplate;

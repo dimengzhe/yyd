@@ -1,11 +1,10 @@
-package com.yxt.yyd.common.base.redis;
+package com.yxt.yyd.common.redis.configure;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -15,10 +14,10 @@ import redis.clients.jedis.JedisPoolConfig;
 
 /**
  * @author dimengzhe
- * @date 2021/9/3 17:26
+ * @date 2021/10/10 12:21
  * @description
  */
-@Configuration
+
 public class RedisConfig {
 
     @Value("${spring.redis.host}")
