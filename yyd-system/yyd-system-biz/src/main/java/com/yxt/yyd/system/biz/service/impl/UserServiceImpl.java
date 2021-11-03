@@ -1,9 +1,9 @@
 package com.yxt.yyd.system.biz.service.impl;
 
-import com.yxt.yyd.common.base.redis.RedisUtil;
 import com.yxt.yyd.common.base.service.MybatisBaseService;
 import com.yxt.yyd.common.base.utils.MsgWs;
 import com.yxt.yyd.common.core.result.ResultBean;
+import com.yxt.yyd.common.redis.service.RedisService;
 import com.yxt.yyd.system.api.domain.SystemUser;
 import com.yxt.yyd.system.biz.mapper.UserMapper;
 import com.yxt.yyd.system.biz.service.IUserSerivce;
@@ -34,7 +34,7 @@ public class UserServiceImpl extends MybatisBaseService<UserMapper, SystemUser> 
     static final String RESULT_CODE = "1";
 
     @Autowired
-    private RedisUtil redisUtil;
+    private RedisService redisUtil;
 
     /**
      * 发送短信验证码

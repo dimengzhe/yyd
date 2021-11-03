@@ -1,25 +1,20 @@
-package com.yxt.yyd.system;
+package com.yxt.yyd.system.test;
 
-import org.minbox.framework.logging.spring.context.annotation.client.EnableLoggingClient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * @author dimengzhe
- * @date 2020/9/11 14:44
+ * @date 2021/11/3 23:30
  * @description
  */
-@EnableDiscoveryClient
-@EnableLoggingClient
 @SpringBootApplication(scanBasePackages = {
         "com.yxt.yyd.common.redis",
         "com.yxt.yyd.common.base.config",
         "com.yxt.yyd.system"
 })
-public class SystemApplication {
-
+public class TestApplication {
     public static void main(String[] args) {
-        SpringApplication.run(SystemApplication.class, args);
+        SpringApplication.run(TestApplication.class, args);
     }
 }

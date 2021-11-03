@@ -1,6 +1,6 @@
 ﻿spring:
   application:
-    name: yxt-yyd-system
+    name: yyd-system
   profiles:
     active: dev
   messages:
@@ -35,18 +35,18 @@ mybatis-plus:
     cache-enabled: true
     call-setters-on-nulls: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-
-#hystrix的超时时间
-hystrix:
-  command:
-    default:
-      execution:
-        timeout:
-          enabled: true
-        isolation:
-          thread:
-            timeoutInMilliseconds: 30000
-#ribbon的超时时间
-ribbon:
-  ReadTimeout: 30000
-  ConnectTimeout: 30000
+feign:
+  client:
+    config:
+      yyd-system:
+        #配置指定服务连接超时
+        connectTimeout: 30000
+        #配置指定服务等待超时
+        readTimeout: 30000
+#配置ApiBoot Logging 日志组件
+api:
+  boot:
+    logging:
+      show-console-log: true
+      #实现美化打印请求日志
+      format-console-log-json: true

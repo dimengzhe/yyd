@@ -2,7 +2,7 @@ package com.yxt.yyd.system.biz.controller;
 
 import com.yxt.yyd.common.base.utils.RegexUtil;
 import com.yxt.yyd.common.core.result.ResultBean;
-import com.yxt.yyd.system.api.api.UserApi;
+import com.yxt.yyd.system.api.feigns.UserFeign;
 import com.yxt.yyd.system.biz.service.IUserSerivce;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Controller;
  * @description 用户管理
  */
 @Controller
-public class UserController implements UserApi {
+public class UserController implements UserFeign {
 
     @Autowired
     private IUserSerivce userSerivce;

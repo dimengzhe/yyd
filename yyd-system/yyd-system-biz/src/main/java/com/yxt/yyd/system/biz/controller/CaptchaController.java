@@ -2,12 +2,12 @@ package com.yxt.yyd.system.biz.controller;
 
 import cn.hutool.core.io.FastByteArrayOutputStream;
 import com.google.code.kaptcha.Producer;
-import com.yxt.yyd.common.base.redis.RedisUtil;
 import com.yxt.yyd.common.base.utils.Base64;
 import com.yxt.yyd.common.base.utils.uuid.IdUtils;
 import com.yxt.yyd.common.core.constant.Constants;
 import com.yxt.yyd.common.core.result.ResultBean;
-import com.yxt.yyd.system.api.api.CaptchaApi;
+import com.yxt.yyd.common.redis.service.RedisService;
+import com.yxt.yyd.system.api.feigns.CaptchaFeign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -28,10 +28,10 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping("v1/captchas")
-public class CaptchaController implements CaptchaApi {
+public class CaptchaController implements CaptchaFeign {
 
     @Autowired
-    private RedisUtil redisUtil;
+    private RedisService redisUtil;
 
     @Resource(name = "captchaProducer")
     private Producer captchaProducer;

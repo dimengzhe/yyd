@@ -77,6 +77,7 @@
         <poi-tl.version>1.8.1</poi-tl.version>
         <poi.version>4.1.2</poi.version>
         <flowable.version>6.5.0</flowable.version>
+        <api.boot.version>2.3.3.RELEASE</api.boot.version>
 
     </properties>
 
@@ -358,6 +359,14 @@
                 <groupId>org.apache.poi</groupId>
                 <artifactId>poi</artifactId>
                 <version>${poi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.minbox.framework</groupId>
+                <artifactId>api-boot-dependencies</artifactId>
+                <version>${api.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
 
 

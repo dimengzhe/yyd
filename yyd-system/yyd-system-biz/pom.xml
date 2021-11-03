@@ -10,10 +10,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>yyd-system-biz</artifactId>
-    <groupId>com.yxt.yyd</groupId>
     <version>0.0.1</version>
 
     <dependencies>
+        <dependency>
+            <groupId>com.yxt.yyd</groupId>
+            <artifactId>yyd-common-redis</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+
         <dependency>
             <groupId>com.yxt.yyd</groupId>
             <artifactId>yyd-system-api</artifactId>
@@ -46,12 +51,6 @@
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
-
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>compile</scope>
-        </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -62,10 +61,13 @@
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-spring-boot-starter</artifactId>
         </dependency>
-
-
+        <!-- https://mvnrepository.com/artifact/org.minbox.framework/api-boot-starter -->
+        <!--ApiBoot Logging-->
+        <dependency>
+            <groupId>org.minbox.framework</groupId>
+            <artifactId>api-boot-starter-logging</artifactId>
+        </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
