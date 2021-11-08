@@ -1,96 +1,105 @@
 package com.yxt.yyd.common.core.result;
 
-import com.yxt.yyd.common.core.constant.HttpStatus;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import com.yxt.yyd.common.core.constant.Constants;
 
 import java.io.Serializable;
 
 /**
- * @author dimengzhe
- * @date 2021/8/23 16:42
- * @description
+ * @Author dimengzhe
+ * @Date 2021/8/23 16:42
+ * @Description 返回结果
  */
-@ApiModel(description = "返回结果")
 public class ResultBean<T> implements Serializable {
 
-  @ApiModelProperty("返回结果的说明")
-  private String msg;
+    private static final long serialVersionUID = 1L;
 
-  @ApiModelProperty("结果状态码")
-  private String code;
+    /**
+     * 成功
+     */
+    public static final int SUCCESS = Constants.SUCCESS;
 
-  @ApiModelProperty("业务数据")
-  private T data;
+    /**
+     * 失败
+     */
+    public static final int FAIL = Constants.FAIL;
 
-  @ApiModelProperty(value = "是否成功")
-  private Boolean success;
+    private int code;
 
-  public boolean getSuccess() {
-    return success;
-  }
+    private String msg;
 
-  public ResultBean<T> setSuccess(boolean success) {
-    this.success = success;
-    return this;
-  }
+    private T data;
+    private Boolean success;
 
-  public String getMsg() {
-    return msg;
-  }
+    public static <T> ResultBean<T> success() {
+        return restResult(null, SUCCESS, null, true);
+    }
 
-  public ResultBean<T> setMsg(String msg) {
-    this.msg = msg;
-    return this;
-  }
+    public static <T> ResultBean<T> success(T data) {
+        return restResult(data, SUCCESS, null, true);
+    }
 
-  public String getCode() {
-    return code;
-  }
+    public static <T> ResultBean<T> success(T data, String msg) {
+        return restResult(data, SUCCESS, msg, true);
+    }
 
-  public ResultBean<T> setCode(String code) {
-    this.code = code;
-    return this;
-  }
+    public static <T> ResultBean<T> fail() {
+        return restResult(null, FAIL, null, false);
+    }
 
-  public T getData() {
-    return data;
-  }
+    public static <T> ResultBean<T> fail(String msg) {
+        return restResult(null, FAIL, msg, false);
+    }
 
-  public ResultBean<T> setData(T data) {
-    this.data = data;
-    return this;
-  }
+    public static <T> ResultBean<T> fail(T data) {
+        return restResult(data, FAIL, null, false);
+    }
 
-  public ResultBean() {}
+    public static <T> ResultBean<T> fail(T data, String msg) {
+        return restResult(data, FAIL, msg, false);
+    }
 
-  public ResultBean<T> success() {
-    this.setSuccess(true);
-    this.setCode(String.valueOf(HttpStatus.SUCCESS));
-    this.setMsg("操作成功！");
-    return this;
-  }
+    public static <T> ResultBean<T> fail(int code, String msg) {
+        return restResult(null, code, msg, false);
+    }
 
-  public ResultBean<T> fail() {
-    this.setSuccess(false);
-    this.setCode(String.valueOf(HttpStatus.ERROR));
-    this.setMsg("操作失败！");
-    return this;
-  }
+    private static <T> ResultBean<T> restResult(T data, int code, String msg, Boolean success) {
+        ResultBean<T> apiResult = new ResultBean<>();
+        apiResult.setCode(code);
+        apiResult.setData(data);
+        apiResult.setMsg(msg);
+        apiResult.setSuccess(success);
+        return apiResult;
+    }
 
-  public static <T> ResultBean<T> fireSuccess() {
-    ResultBean<T> rb = new ResultBean<T>();
-    rb.setSuccess(true);
-    rb.setCode(String.valueOf(HttpStatus.SUCCESS));
-    rb.setMsg("操作成功！");
-    return rb;
-  }
+    public int getCode() {
+        return code;
+    }
 
-  public static <T> ResultBean<T> fireFail() {
-    ResultBean<T> rb = new ResultBean<T>();
-    rb.setSuccess(false);
-    rb.setCode(String.valueOf(HttpStatus.ERROR));
-    rb.setMsg("操作失败！");
-    return rb;
-  }
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
+
+    public Boolean getSuccess() {
+        return success;
+    }
+
+    public void setSuccess(Boolean success) {
+        this.success = success;
+    }
 }

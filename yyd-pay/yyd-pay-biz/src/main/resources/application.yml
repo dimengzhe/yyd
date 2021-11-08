@@ -1,0 +1,52 @@
+﻿spring:
+  application:
+    name: yyd-system
+  profiles:
+    active: dev
+  messages:
+    # 国际化资源文件路径
+    basename: i18n/messages
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 100MB
+  output:
+    ansi:
+      enabled: ALWAYS
+
+server:
+  port: 1001
+  max-http-header-size: 102400
+  undertow:
+    max-http-post-size: -1
+yyd:
+  captchaType: math
+
+#mybatis
+mybatis-plus:
+  mapper-locations: classpath*:**Mapper.xml
+  global-config:
+    refresh: true
+    db-config:
+      id-type: auto
+      db-type: mysql
+  configuration:
+    map-underscore-to-camel-case: false
+    cache-enabled: true
+    call-setters-on-nulls: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+feign:
+  client:
+    config:
+      yyd-system:
+        #配置指定服务连接超时
+        connectTimeout: 30000
+        #配置指定服务等待超时
+        readTimeout: 30000
+#配置ApiBoot Logging 日志组件
+api:
+  boot:
+    logging:
+      show-console-log: true
+      #实现美化打印请求日志
+      format-console-log-json: true

@@ -1,76 +1,116 @@
 package com.yxt.yyd.common.core.constant;
 
-/** 通用常量信息 */
+/**
+ * 通用常量信息
+ */
 public class Constants {
-  /** UTF-8 字符集 */
-  public static final String UTF8 = "UTF-8";
+    /**
+     * UTF-8 字符集
+     */
+    public static final String UTF8 = "UTF-8";
 
-  /** GBK 字符集 */
-  public static final String GBK = "GBK";
+    /**
+     * GBK 字符集
+     */
+    public static final String GBK = "GBK";
 
-  /** http请求 */
-  public static final String HTTP = "http://";
+    /**
+     * RMI 远程方法调用
+     */
+    public static final String LOOKUP_RMI = "rmi://";
 
-  /** https请求 */
-  public static final String HTTPS = "https://";
+    /**
+     * LDAP 远程方法调用
+     */
+    public static final String LOOKUP_LDAP = "ldap://";
 
-  /** 通用成功标识 */
-  public static final String SUCCESS = "0";
+    /**
+     * http请求
+     */
+    public static final String HTTP = "http://";
 
-  /** 通用失败标识 */
-  public static final String FAIL = "1";
+    /**
+     * https请求
+     */
+    public static final String HTTPS = "https://";
 
-  /** 登录成功 */
-  public static final String LOGIN_SUCCESS = "Success";
+    /**
+     * 成功标记
+     */
+    public static final Integer SUCCESS = 200;
 
-  /** 注销 */
-  public static final String LOGOUT = "Logout";
+    /**
+     * 失败标记
+     */
+    public static final Integer FAIL = 500;
 
-  /** 登录失败 */
-  public static final String LOGIN_FAIL = "Error";
+    /**
+     * 登录成功
+     */
+    public static final String LOGIN_SUCCESS = "Success";
 
-  /** 验证码 redis key */
-  public static final String CAPTCHA_CODE_KEY = "captcha_codes:";
+    /**
+     * 注销
+     */
+    public static final String LOGOUT = "Logout";
 
-  /** 登录用户 redis key */
-  public static final String LOGIN_TOKEN_KEY = "login_tokens:";
+    /**
+     * 注册
+     */
+    public static final String REGISTER = "Register";
 
-  /** 防重提交 redis key */
-  public static final String REPEAT_SUBMIT_KEY = "repeat_submit:";
+    /**
+     * 登录失败
+     */
+    public static final String LOGIN_FAIL = "Error";
 
-  /** 验证码有效期（分钟） */
-  public static final Integer CAPTCHA_EXPIRATION = 2;
+    /**
+     * 当前记录起始索引
+     */
+    public static final String PAGE_NUM = "pageNum";
 
-  /** 令牌 */
-  public static final String TOKEN = "token";
+    /**
+     * 每页显示记录数
+     */
+    public static final String PAGE_SIZE = "pageSize";
 
-  /** 令牌前缀 */
-  public static final String TOKEN_PREFIX = "Bearer ";
+    /**
+     * 排序列
+     */
+    public static final String ORDER_BY_COLUMN = "orderByColumn";
 
-  /** 令牌前缀 */
-  public static final String LOGIN_USER_KEY = "login_user_key";
+    /**
+     * 排序的方向 "desc" 或者 "asc".
+     */
+    public static final String IS_ASC = "isAsc";
 
-  /** 用户ID */
-  public static final String JWT_USERID = "userid";
+    /**
+     * 验证码 redis key
+     */
+    public static final String CAPTCHA_CODE_KEY = "captcha_codes:";
 
-  /** 用户名称 */
-  public static final String JWT_USERNAME = "sub";
+    /**
+     * 验证码有效期（分钟）
+     */
+    public static final long CAPTCHA_EXPIRATION = 2;
 
-  /** 用户头像 */
-  public static final String JWT_AVATAR = "avatar";
+    /**
+     * 令牌有效期（分钟）
+     */
+    public final static long TOKEN_EXPIRE = 720;
 
-  /** 创建时间 */
-  public static final String JWT_CREATED = "created";
+    /**
+     * 参数管理 cache key
+     */
+    public static final String SYS_CONFIG_KEY = "sys_config:";
 
-  /** 用户权限 */
-  public static final String JWT_AUTHORITIES = "authorities";
+    /**
+     * 字典管理 cache key
+     */
+    public static final String SYS_DICT_KEY = "sys_dict:";
 
-  /** 参数管理 cache key */
-  public static final String SYS_CONFIG_KEY = "sys_config:";
-
-  /** 字典管理 cache key */
-  public static final String SYS_DICT_KEY = "sys_dict:";
-
-  /** 资源映射路径 前缀 */
-  public static final String RESOURCE_PREFIX = "/profile";
+    /**
+     * 资源映射路径 前缀
+     */
+    public static final String RESOURCE_PREFIX = "/profile";
 }

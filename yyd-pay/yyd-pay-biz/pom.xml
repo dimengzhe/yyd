@@ -3,25 +3,25 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>yyd-system</artifactId>
+        <artifactId>yyd-pay</artifactId>
         <groupId>com.yxt.yyd</groupId>
         <version>0.0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>yyd-system-biz</artifactId>
+    <artifactId>yyd-pay-biz</artifactId>
     <version>0.0.1</version>
 
     <dependencies>
-        <!--redis相关-->
         <dependency>
             <groupId>com.yxt.yyd</groupId>
             <artifactId>yyd-common-redis</artifactId>
             <version>0.0.1</version>
         </dependency>
+
         <dependency>
             <groupId>com.yxt.yyd</groupId>
-            <artifactId>yyd-system-api</artifactId>
+            <artifactId>yyd-pay-api</artifactId>
             <version>0.0.1</version>
         </dependency>
         <dependency>
@@ -39,16 +39,12 @@
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
-      <!--  <dependency>
+        <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>4.0.1</version>
             <scope>compile</scope>
-        </dependency>-->
-      <!--  <dependency>
-            <groupId>com.github.xiaoymin</groupId>
-            <artifactId>knife4j-spring-boot-starter</artifactId>
-        </dependency>-->
+        </dependency>
         <!--ApiBoot Logging日志管理文件-->
         <dependency>
             <groupId>org.minbox.framework</groupId>

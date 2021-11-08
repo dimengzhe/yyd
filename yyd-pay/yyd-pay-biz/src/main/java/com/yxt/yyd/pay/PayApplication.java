@@ -15,11 +15,11 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @SpringBootApplication(scanBasePackages = {
         "com.yxt.yyd.common.utils",
         "com.yxt.yyd.common.base.config",
-        "com.yxt.yyd.system"
+        "com.yxt.yyd.pay"
 })
-public class SystemApplication {
+public class PayApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SystemApplication.class, args);
+        SpringApplication.run(PayApplication.class, args);
     }
 }

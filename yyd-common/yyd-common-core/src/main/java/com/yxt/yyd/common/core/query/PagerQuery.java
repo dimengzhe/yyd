@@ -18,6 +18,9 @@ public class PagerQuery<T extends Query> implements Serializable {
     @ApiModelProperty(value = "每页记录数", example = "10")
     private long size = 10L;
 
+    @ApiModelProperty(value = "标识符")
+    private Integer identifier;
+
     @ApiModelProperty("查询条件的项")
     private T params;
 
@@ -58,6 +61,14 @@ public class PagerQuery<T extends Query> implements Serializable {
     public PagerQuery setParams(T params) {
         this.params = params;
         return this;
+    }
+
+    public Integer getIdentifier() {
+        return identifier;
+    }
+
+    public void setIdentifier(Integer identifier) {
+        this.identifier = identifier;
     }
 
     public void fromPagerQuery(PagerQuery s_query) {

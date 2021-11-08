@@ -1,6 +1,7 @@
 package com.yxt.yyd;
 
 import com.alibaba.fastjson.JSON;
+import com.yxt.yyd.common.utils.service.RedisService;
 import com.yxt.yyd.utils.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,9 +23,9 @@ import reactor.core.publisher.Mono;
  * @date 2020/12/2 9:52
  * @description 网关鉴权
  * 1.某些接口不需要不进行登录验证，如登录，注册，获取验证码等接口。(uri白名单)
- *2.某些接口需要登录验证，但是不需要刷新token有效时间，如客户端轮询请求的接口。
- *3.特定场景下IP黑、白名单。
- *4.处于安全考虑的接口流量控制。
+ * 2.某些接口需要登录验证，但是不需要刷新token有效时间，如客户端轮询请求的接口。
+ * 3.特定场景下IP黑、白名单。
+ * 4.处于安全考虑的接口流量控制。
  */
 @Component
 public class AuthFilter implements GlobalFilter, Ordered {
@@ -33,25 +34,26 @@ public class AuthFilter implements GlobalFilter, Ordered {
     //过期时间设置为4小时
     private final static long EXPIRE_TIME = Constants.TOKEN_EXPIRE * 60;
     private final static long EXPIRE_TIME_APP = Constants.TOKEN_EXPIRE_APP * 60;
+    private final static String APP = "App";
 
     // 排除过滤的 uri 地址，nacos自行添加
     @Autowired
     private IgnoreWhiteProperties ignoreWhite;
     @Autowired
-    private RedisUtil redisUtil;
+    private RedisService redisUtil;
     /*
     redis中数据存储结构为两个键值对
            键为用户ID，值为用户token，可以通过用户ID查询用户token，实现立刻失效用户token功能。
             键为用户token，值为用户数据，实现token有效性，用户数据缓存功能。     
     */
-    
+
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         String url = exchange.getRequest().getURI().getPath();
         //1.uri白名单。  跳过不需要验证的路径
         if (StringUtils.matches(url, ignoreWhite.getWhites())) {
             return chain.filter(exchange);
-        }else if(StringUtils.matchesTwo(url, ignoreWhite.getWhitesTwo())){
+        } else if (StringUtils.matchesTwo(url, ignoreWhite.getWhitesTwo())) {
             return chain.filter(exchange);
         }
         //2.验证有无令牌。 从请求的header中获取token
@@ -62,20 +64,18 @@ public class AuthFilter implements GlobalFilter, Ordered {
         //3.验证token是否有效。（a.验证token是否合法 b.验证token是否过期）
         //从redis缓存中获取key对应的内容
         String userName = redisUtil.get(token);
-        
+
         if (StringUtils.isBlank(userName)) {
-        	
+
             return setUnauthorizedResponse(exchange, "登录状态已过期");
         }
         //验签：需要验证token中的签名是否与用户sid一致，后台用密钥+userSid+token除签名以外的内容，重新生成签名，与token中的签名进行比较
 
         //刷新token过期日期
-        if(token.contains("App")){
-            //redisUtil.set(token, userName, EXPIRE_TIME_APP);
-        	redisUtil.expire(token, EXPIRE_TIME_APP);	
-        }else{
-            //redisUtil.set(token, userName, EXPIRE_TIME);
-        	redisUtil.expire(token, EXPIRE_TIME);
+        if (token.contains(APP)) {
+            redisUtil.expire(token, EXPIRE_TIME_APP);
+        } else {
+            redisUtil.expire(token, EXPIRE_TIME);
         }
 
         // 在请求中增加用户信息
@@ -84,8 +84,10 @@ public class AuthFilter implements GlobalFilter, Ordered {
         ServerWebExchange mutableExchange = exchange.mutate().request(mutableReq).build();
         return chain.filter(mutableExchange);
     }
+
     /**
      * 鉴权异常处理
+     *
      * @param exchange
      * @param msg
      * @return
@@ -108,9 +110,6 @@ public class AuthFilter implements GlobalFilter, Ordered {
      */
     private String getToken(ServerHttpRequest request) {
         String token = request.getHeaders().getFirst(CacheConstants.HEADER);
-//        if (StringUtils.isNotEmpty(token) && token.startsWith(CacheConstants.TOKEN_PREFIX)) {
-//            token = token.replace(CacheConstants.TOKEN_PREFIX, "");
-//        }
         return token;
     }
 

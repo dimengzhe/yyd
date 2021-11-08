@@ -23,6 +23,8 @@ public class PagerVo<T> implements Serializable {
     private long size = 15L;
     @ApiModelProperty("当前页号")
     private long current = 1L;
+    @ApiModelProperty(value = "标识符")
+    private Integer identifier;
 
     @ApiModelProperty("当前页的数据")
     private List<T> records = Collections.emptyList();
@@ -88,5 +90,11 @@ public class PagerVo<T> implements Serializable {
         return this;
     }
 
+    public Integer getIdentifier() {
+        return identifier;
+    }
 
+    public void setIdentifier(Integer identifier) {
+        this.identifier = identifier;
+    }
 }

@@ -1,5 +1,6 @@
 package com.yxt.yyd.common.base.service;
 
+
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -35,12 +36,25 @@ public class MybatisBaseService<M extends BaseMapper<T>, T> extends ServiceImpl<
         return instance;
     }
 
+    /**
+     * 根据sid删除
+     *
+     * @param sid sid
+     * @return
+     */
     public int deleteBySid(String sid) {
         Map<String, Object> map = new HashMap<>();
         map.put("sid", sid);
         return baseMapper.deleteByMap(map);
     }
 
+    /**
+     * 根据sid更新
+     *
+     * @param map 数据
+     * @param sid sid
+     * @return
+     */
     public int updateBySid(Map<String, Object> map, String sid) {
         T t = fetchBySid(sid);
         if (t == null) {

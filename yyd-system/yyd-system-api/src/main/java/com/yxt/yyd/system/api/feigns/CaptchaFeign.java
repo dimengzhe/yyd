@@ -1,12 +1,7 @@
 package com.yxt.yyd.system.api.feigns;
 
-import com.yxt.yyd.common.core.result.ResultBean;
 import com.yxt.yyd.system.api.fallback.CaptchaFeignFallback;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author dimengzhe
@@ -20,7 +15,4 @@ import javax.servlet.http.HttpServletResponse;
         fallback = CaptchaFeignFallback.class)
 public interface CaptchaFeign {
 
-    @GetMapping("/captchaImage")
-    @ResponseBody
-    ResultBean getCode(HttpServletResponse response);
 }
