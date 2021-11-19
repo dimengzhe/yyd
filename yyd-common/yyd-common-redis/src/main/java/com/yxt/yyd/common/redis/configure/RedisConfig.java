@@ -1,4 +1,4 @@
-package com.yxt.yyd.common.utils.configure;
+package com.yxt.yyd.common.redis.configure;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;

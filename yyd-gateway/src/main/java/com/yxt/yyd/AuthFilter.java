@@ -1,7 +1,8 @@
 package com.yxt.yyd;
 
 import com.alibaba.fastjson.JSON;
-import com.yxt.yyd.common.utils.service.RedisService;
+import com.yxt.yyd.common.core.result.ResultBean;
+import com.yxt.yyd.common.redis.service.RedisService;
 import com.yxt.yyd.utils.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,7 +32,9 @@ import reactor.core.publisher.Mono;
 public class AuthFilter implements GlobalFilter, Ordered {
 
     private static final Logger log = LoggerFactory.getLogger(AuthFilter.class);
-    //过期时间设置为4小时
+    /**
+     * 过期时间设置为4小时
+     */
     private final static long EXPIRE_TIME = Constants.TOKEN_EXPIRE * 60;
     private final static long EXPIRE_TIME_APP = Constants.TOKEN_EXPIRE_APP * 60;
     private final static String APP = "App";
@@ -101,7 +104,7 @@ public class AuthFilter implements GlobalFilter, Ordered {
 
         return response.writeWith(Mono.fromSupplier(() -> {
             DataBufferFactory bufferFactory = response.bufferFactory();
-            return bufferFactory.wrap(JSON.toJSONBytes(R.fail(msg)));
+            return bufferFactory.wrap(JSON.toJSONBytes(ResultBean.fireFail().setMsg(msg)));
         }));
     }
 

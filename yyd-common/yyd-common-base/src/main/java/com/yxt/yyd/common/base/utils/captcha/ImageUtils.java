@@ -6,4 +6,6 @@ package com.yxt.yyd.common.base.utils.captcha;
  * @Description
  */
 public class ImageUtils {
+
+
 }

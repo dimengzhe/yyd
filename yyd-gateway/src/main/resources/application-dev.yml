@@ -1,6 +1,6 @@
 spring:
-  resources:
-    static-locations: file:D://yyd
+#  resources:
+#    static-locations: file:D://yyd
   nacos:
     discovery:
       server-addr: 127.0.0.1:8848

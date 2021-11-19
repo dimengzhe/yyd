@@ -1,13 +1,5 @@
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          strategy: SEMAPHORE
-          thread:
-            timeoutInMilliseconds: 300000
 server:
-  port: 8111
+  port: 7111
 spring:
   application:
     name: gateway-server
@@ -19,9 +11,18 @@ spring:
         - id: yyd-system
           predicates:
             - Path= /system/**
-          uri: lb://yxt-yyd-system
+          uri: lb://yyd-system
           filters:
             - StripPrefix=1
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: SEMAPHORE
+          thread:
+            timeoutInMilliseconds: 300000
+
 ignore:
   whites:
 
@@ -35,5 +36,6 @@ ignore:
     - /v2/**
     - /favicon.ico
     - /upload/**
+    - /mode-Text.js
     ###swagger相关结束
 

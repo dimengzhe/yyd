@@ -56,8 +56,8 @@
         <!-- 辅助组件 -->
         <!-- Swagger 依赖配置 -->
         <swagger.fox.version>2.9.2</swagger.fox.version>
-        <knife4j-Swagger>3.0.3</knife4j-Swagger>
-        <!--        <knife4j-Swagger>3.0.3</knife4j-Swagger>-->
+        <knife4j-Swagger>2.0.5</knife4j-Swagger>
+<!--                <knife4j-Swagger>3.0.3</knife4j-Swagger>-->
         <!-- excel工具 -->
         <poi.version>3.17</poi.version>
         <!-- 验证码 -->
@@ -122,11 +122,6 @@
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
-           <!-- <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-annotation</artifactId>
-                <version>${mybatis-plus.version}</version>
-            </dependency>-->
             <!-- Swagger 依赖配置 -->
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>

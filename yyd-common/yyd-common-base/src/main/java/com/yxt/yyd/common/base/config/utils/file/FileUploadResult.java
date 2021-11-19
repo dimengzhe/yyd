@@ -1,4 +1,4 @@
-package com.yxt.yyd.common.base.utils.file;
+package com.yxt.yyd.common.base.config.utils.file;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -19,6 +19,10 @@ public class FileUploadResult {
     private String fullUrl;
     @ApiModelProperty("文件大小")
     private String size;
+    @ApiModelProperty(value = "宽度")
+    private int width;
+    @ApiModelProperty(value = "高度")
+    private int height;
 
     public String getSourceFileName() {
         return sourceFileName;
@@ -52,13 +56,31 @@ public class FileUploadResult {
         this.size = size;
     }
 
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
     public FileUploadResult() {
     }
 
-    public FileUploadResult(String sourceFileName, String filePath, String fullUrl, String size) {
+    public FileUploadResult(String sourceFileName, String filePath, String fullUrl, String size, int width, int height) {
         this.sourceFileName = sourceFileName;
         this.filePath = filePath;
         this.fullUrl = fullUrl;
         this.size = size;
+        this.height = height;
+        this.width = width;
     }
 }

@@ -1,4 +1,4 @@
-package com.yxt.yyd.common.utils.service;
+package com.yxt.yyd.common.redis.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;

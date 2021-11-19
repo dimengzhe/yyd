@@ -13,7 +13,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @EnableDiscoveryClient
 @EnableLoggingClient
 @SpringBootApplication(scanBasePackages = {
-        "com.yxt.yyd.common.utils",
+        "com.yxt.yyd.common.redis",
         "com.yxt.yyd.common.base.config",
         "com.yxt.yyd.system"
 })

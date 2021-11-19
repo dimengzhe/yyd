@@ -15,4 +15,9 @@ import org.springframework.cloud.openfeign.FeignClient;
         fallback = CaptchaFeignFallback.class)
 public interface CaptchaFeign {
 
+
+
+
+
+
 }
