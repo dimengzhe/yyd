@@ -25,6 +25,7 @@ hystrix:
 
 ignore:
   whites:
+    - /system/file/upload  #上传文件
 
 
 
