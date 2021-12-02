@@ -5,12 +5,10 @@ import com.yxt.yyd.common.base.config.utils.file.FileUtils;
 import com.yxt.yyd.common.core.result.ResultBean;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -27,15 +25,19 @@ public class FileController {
     private FileUtils fileUtils;
 
     @ApiOperation(value = "上传文件")
-    @ApiImplicitParam(name = "file", value = "文件", required = true, dataType = "MultipartFile", dataTypeClass = MultipartFile.class)
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "path", value = "路径", required = false, dataTypeClass = String.class),
+            @ApiImplicitParam(name = "file", value = "文件", required = true,  dataType = "MultipartFile", dataTypeClass = MultipartFile.class)
+    })
     @PostMapping("/upload")
-    public ResultBean<FileUploadResult> uploadImage(@RequestParam(value = "file") MultipartFile file) {
+    public ResultBean<FileUploadResult> uploadImage(@RequestPart(value = "file") MultipartFile file,
+                                                    @RequestParam(value = "path", required = false) String path) {
         ResultBean rb = ResultBean.fireFail();
         if (file == null || file.isEmpty()) {
             return rb.setMsg("文件为空");
         }
 
-        rb = fileUtils.uploadFile(file, true,"null");
+        rb = fileUtils.uploadFile(file, true, path);
         return rb;
     }
 }
