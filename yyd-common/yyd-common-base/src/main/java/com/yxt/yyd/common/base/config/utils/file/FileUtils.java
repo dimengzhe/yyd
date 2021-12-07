@@ -10,8 +10,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
+import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
@@ -89,13 +89,18 @@ public class FileUtils {
         if (!destFile.getParentFile().exists()) {
             destFile.getParentFile().mkdirs();
         }
-
+        ImageIcon imageIcon = new ImageIcon(path);
+        Image image = imageIcon.getImage();
+        if (image != null) {
+            width = image.getWidth(imageIcon.getImageObserver());
+            heigh = image.getHeight(imageIcon.getImageObserver());
+        }
         try {
-            BufferedImage bufferedImage = ImageIO.read(file.getInputStream());
-            if (bufferedImage != null) {
-                width = bufferedImage.getWidth();
-                heigh = bufferedImage.getHeight();
-            }
+//            BufferedImage bufferedImage = ImageIO.read(file.getInputStream());
+//            if (bufferedImage != null) {
+//                width = bufferedImage.getWidth();
+//                heigh = bufferedImage.getHeight();
+//            }
             file.transferTo(destFile);
         } catch (IOException e) {
             e.printStackTrace();

@@ -29,6 +29,6 @@ logging:
 
 image:
   upload:
-    path: D:\\yyd\\upload\\
+    path: D:\yyd\upload\
   url:
     prefix: http://39.104.100.138:8111/upload/
