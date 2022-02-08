@@ -1,4 +1,4 @@
-package com.yxt.yyd.system;
+package com.yxt.yyd.demo;
 
 import org.minbox.framework.logging.spring.context.annotation.client.EnableLoggingClient;
 import org.springframework.boot.SpringApplication;
@@ -15,12 +15,12 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @SpringBootApplication(scanBasePackages = {
         "com.yxt.yyd.common.redis",
         "com.yxt.yyd.common.base.config",
-        "com.yxt.yyd.system"
+        "com.yxt.yyd.demo"
 })
-public class SystemApplication {
+public class DemoApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SystemApplication.class, args);
+        SpringApplication.run(DemoApplication.class, args);
     }
 
 }

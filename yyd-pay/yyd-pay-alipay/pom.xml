@@ -3,23 +3,34 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
+        <artifactId>yyd-pay</artifactId>
         <groupId>com.yxt.yyd</groupId>
-        <artifactId>yyd-common</artifactId>
         <version>0.0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>yyd-common-core</artifactId>
+
+    <artifactId>yyd-pay-alipay</artifactId>
     <version>0.0.1</version>
 
     <dependencies>
         <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-core</artifactId>
+            <groupId>com.yxt.yyd</groupId>
+            <artifactId>yyd-common-core</artifactId>
+            <version>0.0.1</version>
         </dependency>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>compile</scope>
+        </dependency>
+
+
     </dependencies>
+
+
 </project>

@@ -12,6 +12,7 @@
         <module>yyd-system</module>
         <module>yyd-common</module>
         <module>yyd-pay</module>
+        <module>yyd-demo</module>
     </modules>
     <packaging>pom</packaging>
     <description>宇运动</description>

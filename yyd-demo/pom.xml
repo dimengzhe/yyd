@@ -8,19 +8,17 @@
         <version>0.0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>yyd-pay</artifactId>
+    <artifactId>yyd-demo</artifactId>
     <groupId>com.yxt.yyd</groupId>
     <version>0.0.1</version>
     <modules>
-        <module>yyd-pay-api</module>
-        <module>yyd-pay-biz</module>
-        <module>yyd-pay-alipay</module>
-        <module>yyd-pay-wxpay</module>
+        <module>yyd-demo-api</module>
+        <module>yyd-demo-biz</module>
     </modules>
 
 
     <packaging>pom</packaging>
-    <description>宇运动-支付系统</description>
+    <description>宇运动-示例等</description>
 
 
 </project>
