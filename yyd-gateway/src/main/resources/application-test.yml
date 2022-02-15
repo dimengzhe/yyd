@@ -1,9 +1,6 @@
 spring:
   resources:
     static-locations: file:D://yyd
-  nacos:
-    discovery:
-      server-addr: 192.168.103.6:8848
   redis:
     database: 2  # Redis数据库索引（默认为0）
     #    host: 192.168.104.4
@@ -17,3 +14,7 @@ spring:
     password: 123456
     port: 6379
     timeout: 0  # 连接超时时间（毫秒）
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.103.6:8848

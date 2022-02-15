@@ -4,9 +4,10 @@ spring:
     url: jdbc:mysql://39.104.142.92:3306/test?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&serverTimezone=GMT%2B8&failOverReadOnly=false
     username: root
     password: 123456
-  nacos:
-    discovery:
-      server-addr: 39.104.100.138:8848
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 39.104.100.138:8848
   redis:
     database: 2  # Redis数据库索引（默认为0）
     host: 39.104.100.138

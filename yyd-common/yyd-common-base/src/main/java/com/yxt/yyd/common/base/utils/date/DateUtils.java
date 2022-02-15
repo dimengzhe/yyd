@@ -77,4 +77,8 @@ public class DateUtils {
         return (date == null) ? null : new SimpleDateFormat(format)
                 .format(date);
     }
+
+    public static final String parseDateToStr(final String format, final Date date) {
+        return new SimpleDateFormat(format).format(date);
+    }
 }

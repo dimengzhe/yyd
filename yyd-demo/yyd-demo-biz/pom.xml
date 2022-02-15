@@ -39,11 +39,16 @@
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <!--ApiBoot Logging日志管理文件-->
         <dependency>
-            <groupId>org.minbox.framework</groupId>
-            <artifactId>api-boot-starter-logging</artifactId>
+            <groupId>p6spy</groupId>
+            <artifactId>p6spy</artifactId>
+            <version>3.9.1</version>
         </dependency>
+        <!--ApiBoot Logging日志管理文件-->
+<!--        <dependency>-->
+<!--            <groupId>org.minbox.framework</groupId>-->
+<!--            <artifactId>api-boot-starter-logging</artifactId>-->
+<!--        </dependency>-->
     </dependencies>
     <build>
         <plugins>
