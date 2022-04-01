@@ -20,13 +20,13 @@
 
     <properties>
         <!-- 使用的JAVA版本号 -->
-        <java.version>1.8</java.version>
+        <java.version>17</java.version>
         <!-- 项目构建编码 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- 项目输出编码 -->
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
 
         <!-- Spring相关组件 -->
         <!-- SpringBoot 依赖配置 -->
@@ -72,7 +72,7 @@
         <!-- Hutool组件 -->
         <hutool.version>5.4.0</hutool.version>
         <hibernate-validator.version>6.0.20.Final</hibernate-validator.version>
-        <lombok.version>1.18.12</lombok.version>
+        <lombok.version>1.18.22</lombok.version>
         <jedis.version>3.1.0</jedis.version>
         <java-jwt.version>3.10.1</java-jwt.version>
         <redis.version>2.2.9.RELEASE</redis.version>
@@ -342,8 +342,8 @@
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <optional>true</optional>
                 <version>${lombok.version}</version>
+                <scope>provided</scope>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/com.deepoove/poi-tl -->
@@ -359,13 +359,13 @@
                 <version>${poi.version}</version>
             </dependency>
 
-            <dependency>
+           <!-- <dependency>
                 <groupId>org.minbox.framework</groupId>
                 <artifactId>api-boot-dependencies</artifactId>
                 <version>${api.boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
+            </dependency>-->
 
        <!--     <dependency>
                 <groupId>com.squareup.okhttp3</groupId>
