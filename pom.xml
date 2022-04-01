@@ -30,6 +30,7 @@
 
         <!-- Spring相关组件 -->
         <!-- SpringBoot 依赖配置 -->
+<!--        <spring-boot.version>2.2.9.RELEASE</spring-boot.version>-->
         <spring-boot.version>2.2.9.RELEASE</spring-boot.version>
         <!-- SpringCloud 微服务 -->
         <spring-cloud.version>Hoxton.SR6</spring-cloud.version>
