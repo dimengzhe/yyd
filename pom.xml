@@ -30,7 +30,8 @@
 
         <!-- Spring相关组件 -->
         <!-- SpringBoot 依赖配置 -->
-        <spring-boot.version>2.2.9.RELEASE</spring-boot.version>
+        <!--        <spring-boot.version>2.2.9.RELEASE</spring-boot.version>-->
+        <spring-boot.version>2.5.12</spring-boot.version>
         <!-- SpringCloud 微服务 -->
         <spring-cloud.version>Hoxton.SR6</spring-cloud.version>
         <!-- SpringCloud Alibaba 微服务 -->
@@ -48,7 +49,7 @@
         <commons.beanutils.version>1.9.3</commons.beanutils.version>
         <!-- 线程池工具 -->
         <common-pool.version>2.6.2</common-pool.version>
-        <mybatis-plus.version>3.4.0</mybatis-plus.version>
+        <mybatis-plus.version>3.4.3</mybatis-plus.version>
         <!-- JSON 解析器和生成器 -->
         <fastjson.version>1.2.73</fastjson.version>
         <!--Token生成与解析 -->
@@ -58,7 +59,7 @@
         <!-- Swagger 依赖配置 -->
         <swagger.fox.version>2.9.2</swagger.fox.version>
         <knife4j-Swagger>2.0.5</knife4j-Swagger>
-<!--                <knife4j-Swagger>3.0.3</knife4j-Swagger>-->
+        <!--                <knife4j-Swagger>3.0.3</knife4j-Swagger>-->
         <!-- excel工具 -->
         <poi.version>3.17</poi.version>
         <!-- 验证码 -->
@@ -120,9 +121,10 @@
             <!--mybatis-plus配置-->
             <dependency>
                 <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <artifactId>mybatis-plus</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
+
             <!-- Swagger 依赖配置 -->
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
@@ -359,19 +361,19 @@
                 <version>${poi.version}</version>
             </dependency>
 
-           <!-- <dependency>
-                <groupId>org.minbox.framework</groupId>
-                <artifactId>api-boot-dependencies</artifactId>
-                <version>${api.boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>-->
+            <!-- <dependency>
+                 <groupId>org.minbox.framework</groupId>
+                 <artifactId>api-boot-dependencies</artifactId>
+                 <version>${api.boot.version}</version>
+                 <type>pom</type>
+                 <scope>import</scope>
+             </dependency>-->
 
-       <!--     <dependency>
-                <groupId>com.squareup.okhttp3</groupId>
-                <artifactId>okhttp</artifactId>
-                <version>${okhttp.version}</version>
-            </dependency>-->
+            <!--     <dependency>
+                     <groupId>com.squareup.okhttp3</groupId>
+                     <artifactId>okhttp</artifactId>
+                     <version>${okhttp.version}</version>
+                 </dependency>-->
 
 
         </dependencies>
