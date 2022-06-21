@@ -1,7 +1,7 @@
 package com.yxt.yyd.system.api.feigns;
 
 import com.yxt.yyd.common.core.result.ResultBean;
-import com.yxt.yyd.system.api.fallback.CaptchaFeignFallback;
+import com.yxt.yyd.system.api.fallback.UserFeignFallback;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * 涉及到注册、获取注册验证码、登录、第三方登录、升级版本、忘记密码、同意隐私政策、第三方登录绑定手机号、
  */
 @FeignClient(
-        contextId = "yxt-yyd-system-User",
-        name = "yxt-yyd-system",
+        contextId = "system-User",
+        name = "yyd-system",
         path = "v1/users",
-        fallback = CaptchaFeignFallback.class)
+        fallback = UserFeignFallback.class)
 public interface UserFeign {
 
     /**

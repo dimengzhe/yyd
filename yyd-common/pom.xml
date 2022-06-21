@@ -21,11 +21,6 @@
     <name>yyd-common</name>
     <description>框架的公共项目，存放项目中用到的基础类、公共类及工具类。各项目根据需要引用对应子项目</description>
     <dependencies>
-        <!--swagger-->
-     <!--   <dependency>
-            <groupId>io.swagger</groupId>
-            <artifactId>swagger-models</artifactId>
-        </dependency>-->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>

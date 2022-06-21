@@ -1,3 +1,4 @@
+
 package com.yxt.yyd.system.config;
 
 import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
@@ -16,6 +17,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @date 2021/9/9 16:42
  * @description
  */
+
 @Configuration
 @EnableSwagger2
 @EnableKnife4j
@@ -34,3 +36,4 @@ public class Swagger2Config {
                 .build();
     }
 }
+

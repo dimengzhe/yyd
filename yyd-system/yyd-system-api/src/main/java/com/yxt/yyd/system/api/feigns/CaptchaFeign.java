@@ -9,8 +9,8 @@ import org.springframework.cloud.openfeign.FeignClient;
  * @description 验证码
  */
 @FeignClient(
-        contextId = "yxt-yyd-system-Captcha",
-        name = "yxt-yyd-system",
+        contextId = "system-Captcha",
+        name = "yyd-system",
         path = "v1/captchas",
         fallback = CaptchaFeignFallback.class)
 public interface CaptchaFeign {

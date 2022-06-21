@@ -28,10 +28,10 @@ public class BaseEntity extends Entity {
     private Date modifyTime = new Date();
 
     @ApiModelProperty("记录状态值")
-    private Integer state = 1;
+    private Integer state = 0;
 
-    @ApiModelProperty("记录是否可用，1:可用(默认)，0:不可用")
-    private Integer isEnable = 1;
+    @ApiModelProperty("记录是否可用，0:可用(默认)，1:不可用")
+    private Integer isEnable = 0;
 
     @ApiModelProperty("记录是否被删除，0:未删除(默认)，1:已经删除")
     private Integer isDelete = 0;

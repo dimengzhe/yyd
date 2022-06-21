@@ -118,3 +118,28 @@ CREATE TABLE `system_area_county`
 ) ENGINE = INNODB
   DEFAULT CHARSET = utf8 COMMENT ='区域-县区';
 
+
+DROP TABLE IF EXISTS `system_area`;
+CREATE TABLE `system_area`
+(
+    `id`          int(32)     NOT NULL AUTO_INCREMENT COMMENT 'id',
+    `sid`         varchar(64) NOT NULL COMMENT 'sid',
+    `lockVersion` int(32)              DEFAULT '0' COMMENT '版本锁',
+    `createTime`  timestamp   NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `modifyTime`  timestamp   NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
+    `isEnable`    int(32)              DEFAULT '0' COMMENT '是否可用：0可用，1不可用',
+    `state`       int(32)              DEFAULT '0' COMMENT '状态',
+    `isDelete`    int(32)              DEFAULT '0' COMMENT '是否删除：0未删除，1已删除',
+    `remarks`     varchar(255)         DEFAULT NULL COMMENT '备注',
+    `createBySid` varchar(64)          DEFAULT NULL COMMENT '创建人sid',
+    `updateBySid` varchar(64)          DEFAULT NULL COMMENT '修改人sid',
+    `citySid`     varchar(64)          DEFAULT NULL COMMENT '市级sid',
+    `name`        VARCHAR(64) NOT NULL COMMENT '名称',
+    `code`        VARCHAR(64) NOT NULL COMMENT '编号',
+    `parentSid`   VARCHAR(64) NOT NULL COMMENT '父级sid',
+    `level`       int(32)     NOT NULL COMMENT '地区级别 1-省、自治区、直辖市 2-地级市、地区、自治州、盟 3-市辖区、县级市、县',
+    PRIMARY KEY (`id`),
+    KEY `id` (`id`)
+) ENGINE = INNODB
+  DEFAULT CHARSET = utf8 COMMENT ='区域';
+
