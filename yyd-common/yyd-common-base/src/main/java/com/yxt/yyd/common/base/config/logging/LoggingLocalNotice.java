@@ -9,21 +9,21 @@ import org.minbox.framework.logging.core.MinBoxLog;
 import org.minbox.framework.util.JsonUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
 /**
  * @Author dimengzhe
  * @Date 2022/6/21 11:27
- * @Description
+ * @Description 日志模板
  */
-@Configuration
+@Component
 public class LoggingLocalNotice implements LoggingNotice {
 
     public static final String BEAN_NAME = "loggingLocalNotice";
     static Logger logger = LoggerFactory.getLogger(LoggingLocalNotice.class);
-    private LoggingFactoryBean loggingFactoryBean;
+    private final LoggingFactoryBean loggingFactoryBean;
 
     public LoggingLocalNotice(LoggingFactoryBean loggingFactoryBean) {
         this.loggingFactoryBean = loggingFactoryBean;
