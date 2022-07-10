@@ -1,4 +1,4 @@
-package com.yxt.yyd.common.base.utils;
+package com.yxt.yyd.common.utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -16,6 +16,7 @@
         <module>yyd-common-base</module>
         <module>yyd-common-redis</module>
         <module>yyd-common-jdbc</module>
+        <module>yyd-common-utils</module>
     </modules>
     <packaging>pom</packaging>
     <name>yyd-common</name>

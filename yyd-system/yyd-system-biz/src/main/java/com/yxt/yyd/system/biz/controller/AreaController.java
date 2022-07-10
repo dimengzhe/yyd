@@ -1,7 +1,7 @@
 package com.yxt.yyd.system.biz.controller;
 
-import com.yxt.yyd.common.base.utils.ValidationUtil;
 import com.yxt.yyd.common.core.result.ResultBean;
+import com.yxt.yyd.common.utils.ValidationUtil;
 import com.yxt.yyd.system.api.domain.area.dto.AreaDto;
 import com.yxt.yyd.system.api.feigns.AreaFeign;
 import com.yxt.yyd.system.biz.service.IAreaService;
@@ -23,12 +23,12 @@ public class AreaController implements AreaFeign {
     private IAreaService areaService;
 
     @Override
-    public ResultBean save(AreaDto dto) {
-        ResultBean rb = ResultBean.fireFail();
+    public ResultBean<String> saveOrUpdate(AreaDto dto) {
+       ResultBean rb = ResultBean.fireFail();
         String errorMsg = ValidationUtil.validateOne(dto);
         if (StringUtils.isNotBlank(errorMsg)) {
             return rb.setMsg(errorMsg);
         }
-        return null;
+        return areaService.saveOrUpdate(dto);
     }
 }

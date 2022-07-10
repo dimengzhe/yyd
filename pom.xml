@@ -51,7 +51,7 @@
         <commons.beanutils.version>1.9.3</commons.beanutils.version>
         <!-- 线程池工具 -->
         <common-pool.version>2.6.2</common-pool.version>
-        <mybatis-plus.version>3.4.3</mybatis-plus.version>
+        <mybatis-plus.version>3.4.0</mybatis-plus.version>
         <!-- JSON 解析器和生成器 -->
         <fastjson.version>1.2.73</fastjson.version>
         <!--Token生成与解析 -->
@@ -123,9 +123,19 @@
                 <scope>import</scope>
             </dependency>
             <!--mybatis-plus配置-->
-            <dependency>
+           <!-- <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-annotation</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
 

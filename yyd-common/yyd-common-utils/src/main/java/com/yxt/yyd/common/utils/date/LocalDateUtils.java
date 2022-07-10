@@ -1,4 +1,4 @@
-package com.yxt.yyd.common.base.utils.date;
+package com.yxt.yyd.common.utils.date;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

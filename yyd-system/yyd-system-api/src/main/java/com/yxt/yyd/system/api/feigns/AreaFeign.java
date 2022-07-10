@@ -30,6 +30,6 @@ public interface AreaFeign {
      */
     @ApiOperation(value = "区域-保存")
     @ResponseBody
-    @PostMapping
-    ResultBean save(@RequestBody AreaDto dto);
+    @PostMapping(value = "saveOrUpdate")
+    ResultBean<String> saveOrUpdate(@RequestBody AreaDto dto);
 }

@@ -1,4 +1,4 @@
-package com.yxt.yyd.common.base.utils;
+package com.yxt.yyd.common.utils;
 
 import org.apache.commons.lang3.StringUtils;
 

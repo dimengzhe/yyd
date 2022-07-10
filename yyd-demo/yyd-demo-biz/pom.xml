@@ -21,6 +21,11 @@
         </dependency>
         <dependency>
             <groupId>com.yxt.yyd</groupId>
+            <artifactId>yyd-common-utils</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yxt.yyd</groupId>
             <artifactId>yyd-demo-api</artifactId>
             <version>0.0.1</version>
         </dependency>

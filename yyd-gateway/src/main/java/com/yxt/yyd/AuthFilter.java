@@ -104,7 +104,7 @@ public class AuthFilter implements GlobalFilter, Ordered {
 
         return response.writeWith(Mono.fromSupplier(() -> {
             DataBufferFactory bufferFactory = response.bufferFactory();
-            return bufferFactory.wrap(JSON.toJSONBytes(ResultBean.fireFail().setMsg(msg)));
+            return bufferFactory.wrap(JSON.toJSONBytes(ResultBean.fireFail().setCode(com.yxt.yyd.common.core.constant.HttpStatus.OVERDUE).setMsg(msg)));
         }));
     }
 

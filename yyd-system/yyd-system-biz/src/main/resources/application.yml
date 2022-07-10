@@ -43,6 +43,8 @@ feign:
         connectTimeout: 30000
         #配置指定服务等待超时
         readTimeout: 30000
+#  hystrix:
+#    enabled: true
 #配置ApiBoot Logging 日志组件
 api:
   boot:

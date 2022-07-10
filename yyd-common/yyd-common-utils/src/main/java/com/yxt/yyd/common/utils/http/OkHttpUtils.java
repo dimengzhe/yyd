@@ -1,4 +1,4 @@
-package com.yxt.yyd.common.base.utils.http;
+package com.yxt.yyd.common.utils.http;
 
 import com.alibaba.fastjson.JSON;
 import okhttp3.*;

@@ -1,4 +1,4 @@
-package com.yxt.yyd.common.base.utils.pdf;
+package com.yxt.yyd.common.utils.pdf;
 
 import org.apache.pdfbox.io.MemoryUsageSetting;
 import org.apache.pdfbox.multipdf.PDFMergerUtility;

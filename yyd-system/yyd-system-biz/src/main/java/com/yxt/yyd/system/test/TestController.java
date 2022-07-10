@@ -1,6 +1,6 @@
 package com.yxt.yyd.system.test;
 
-import com.yxt.yyd.common.base.utils.pdf.PdfUtils;
+import com.yxt.yyd.common.utils.pdf.PdfUtils;
 
 import java.io.File;
 import java.io.IOException;

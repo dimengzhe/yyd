@@ -12,4 +12,6 @@ public class HttpStatus {
 
   /** 系统内部错误 */
   public static final int ERROR = 500;
+
+  public static final int OVERDUE = 5000;
 }

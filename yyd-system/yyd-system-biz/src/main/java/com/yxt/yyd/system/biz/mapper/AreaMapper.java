@@ -1,5 +1,7 @@
 package com.yxt.yyd.system.biz.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.yxt.yyd.system.api.domain.area.SystemArea;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -8,5 +10,5 @@ import org.apache.ibatis.annotations.Mapper;
  * @Description
  */
 @Mapper
-public interface AreaMapper {
+public interface AreaMapper extends BaseMapper<SystemArea> {
 }

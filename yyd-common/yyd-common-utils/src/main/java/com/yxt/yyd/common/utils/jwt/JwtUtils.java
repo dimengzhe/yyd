@@ -1,4 +1,4 @@
-package com.yxt.yyd.common.base.utils.jwt;
+package com.yxt.yyd.common.utils.jwt;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

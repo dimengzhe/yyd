@@ -1,4 +1,4 @@
-package com.yxt.yyd.common.base.utils.captcha;
+package com.yxt.yyd.common.utils.captcha;
 
 /**
  * @Author dimengzhe

@@ -1,4 +1,4 @@
-package com.yxt.yyd.common.jdbc;
+package com.yxt.yyd.common.jdbc.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
