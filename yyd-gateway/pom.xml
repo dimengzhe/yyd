@@ -18,6 +18,23 @@
             <groupId>com.yxt.yyd</groupId>
             <artifactId>yyd-common-core</artifactId>
             <version>0.0.1</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.yxt.yyd</groupId>
+            <artifactId>yyd-common-utils</artifactId>
+            <version>0.0.1</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.yxt.yyd</groupId>
@@ -35,22 +52,22 @@
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-        <!--    <exclusions>
-                <exclusion>
-                    <artifactId>jsr305</artifactId>
-                    <groupId>com.google.code.findbugs</groupId>
-                </exclusion>
-            </exclusions>-->
+            <!--    <exclusions>
+                    <exclusion>
+                        <artifactId>jsr305</artifactId>
+                        <groupId>com.google.code.findbugs</groupId>
+                    </exclusion>
+                </exclusions>-->
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
-      <!--  <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-        </dependency>-->
+        <!--  <dependency>
+              <groupId>org.springframework</groupId>
+              <artifactId>spring-webmvc</artifactId>
+          </dependency>-->
 
         <dependency>
             <groupId>com.alibaba</groupId>

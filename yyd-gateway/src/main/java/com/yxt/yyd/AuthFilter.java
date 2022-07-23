@@ -4,9 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.yxt.yyd.common.core.constant.StatusEnum;
 import com.yxt.yyd.common.core.result.ResultBean;
 import com.yxt.yyd.common.redis.service.RedisService;
-import com.yxt.yyd.utils.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.yxt.yyd.common.utils.convert.StringUtil;
+import com.yxt.yyd.config.CacheConstants;
+import com.yxt.yyd.config.IgnoreWhiteProperties;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
@@ -30,15 +31,16 @@ import reactor.core.publisher.Mono;
  * 4.处于安全考虑的接口流量控制。
  */
 @Component
+@Slf4j
 public class AuthFilter implements GlobalFilter, Ordered {
 
-    private static final Logger log = LoggerFactory.getLogger(AuthFilter.class);
     /**
      * 过期时间设置为4小时
      */
-    private final static long EXPIRE_TIME = Constants.TOKEN_EXPIRE * 60;
-    private final static long EXPIRE_TIME_APP = Constants.TOKEN_EXPIRE_APP * 60;
+    private final static long EXPIRE_TIME = CacheConstants.TOKEN_EXPIRE * 60;
+    private final static long EXPIRE_TIME_APP = CacheConstants.TOKEN_EXPIRE_APP * 60;
     private final static String APP = "App";
+
 
     // 排除过滤的 uri 地址，nacos自行添加
     @Autowired
@@ -55,22 +57,21 @@ public class AuthFilter implements GlobalFilter, Ordered {
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         String url = exchange.getRequest().getURI().getPath();
         //1.uri白名单。  跳过不需要验证的路径
-        if (StringUtils.matches(url, ignoreWhite.getWhites())) {
+        if (StringUtil.matches(url, ignoreWhite.getWhites())) {
             return chain.filter(exchange);
-        } else if (StringUtils.matchesTwo(url, ignoreWhite.getWhitesTwo())) {
+        } else if (StringUtil.matchesTwo(url, ignoreWhite.getWhitesTwo())) {
             return chain.filter(exchange);
         }
         //2.验证有无令牌。 从请求的header中获取token
         String token = getToken(exchange.getRequest());
-        if (StringUtils.isBlank(token)) {
+        if (StringUtil.isBlank(token)) {
             return setUnauthorizedResponse(exchange, "令牌不能为空");
         }
         //3.验证token是否有效。（a.验证token是否合法 b.验证token是否过期）
         //从redis缓存中获取key对应的内容
         String userName = redisUtil.get(token);
 
-        if (StringUtils.isBlank(userName)) {
-
+        if (StringUtil.isBlank(userName)) {
             return setUnauthorizedResponse(exchange, "登录状态已过期");
         }
         //验签：需要验证token中的签名是否与用户sid一致，后台用密钥+userSid+token除签名以外的内容，重新生成签名，与token中的签名进行比较
@@ -106,6 +107,7 @@ public class AuthFilter implements GlobalFilter, Ordered {
 
         return response.writeWith(Mono.fromSupplier(() -> {
             DataBufferFactory bufferFactory = response.bufferFactory();
+            log.error(msg);
             return bufferFactory.wrap(JSON.toJSONBytes(resultBean.setCode(StatusEnum.OVERDUE.getCode()).setMsg(msg)));
         }));
     }

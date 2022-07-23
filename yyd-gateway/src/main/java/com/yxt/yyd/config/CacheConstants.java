@@ -1,4 +1,4 @@
-package com.yxt.yyd.utils;
+package com.yxt.yyd.config;
 
 /**
  * @author dimengzhe
@@ -22,4 +22,10 @@ public class CacheConstants {
      * 用户名字段
      */
     public static final String DETAILS_USERNAME = "userName";
+
+    /**
+     * 令牌有效期（分钟）
+     */
+    public final static long TOKEN_EXPIRE = 4*60;
+    public final static long TOKEN_EXPIRE_APP = 15*24*60;
 }
