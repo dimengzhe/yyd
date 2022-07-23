@@ -1,7 +1,7 @@
 package com.yxt.yyd.common.core.result;
 
 import com.yxt.yyd.common.core.constant.Constants;
-import com.yxt.yyd.common.core.constant.HttpStatus;
+import com.yxt.yyd.common.core.constant.StatusEnum;
 
 import java.io.Serializable;
 
@@ -110,14 +110,14 @@ public class ResultBean<T> implements Serializable {
      */
     public ResultBean<T> success() {
         this.setSuccess(true);
-        this.setCode(HttpStatus.SUCCESS);
+        this.setCode(StatusEnum.SUCCESS.getCode());
         this.setMsg("操作成功！");
         return this;
     }
 
     public ResultBean<T> fail() {
         this.setSuccess(false);
-        this.setCode(HttpStatus.ERROR);
+        this.setCode(StatusEnum.FAIL.getCode());
         this.setMsg("操作失败！");
         return this;
     }
@@ -125,7 +125,7 @@ public class ResultBean<T> implements Serializable {
     public static <T> ResultBean<T> fireSuccess() {
         ResultBean<T> rb = new ResultBean<T>();
         rb.setSuccess(true);
-        rb.setCode(HttpStatus.SUCCESS);
+        rb.setCode(StatusEnum.SUCCESS.getCode());
         rb.setMsg("操作成功！");
         return rb;
     }
@@ -133,7 +133,7 @@ public class ResultBean<T> implements Serializable {
     public static <T> ResultBean<T> fireFail() {
         ResultBean<T> rb = new ResultBean<T>();
         rb.setSuccess(false);
-        rb.setCode(HttpStatus.ERROR);
+        rb.setCode(StatusEnum.FAIL.getCode());
         rb.setMsg("操作失败！");
         return rb;
     }

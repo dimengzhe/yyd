@@ -1,6 +1,7 @@
 package com.yxt.yyd;
 
 import com.alibaba.fastjson.JSON;
+import com.yxt.yyd.common.core.constant.StatusEnum;
 import com.yxt.yyd.common.core.result.ResultBean;
 import com.yxt.yyd.common.redis.service.RedisService;
 import com.yxt.yyd.utils.*;
@@ -96,6 +97,7 @@ public class AuthFilter implements GlobalFilter, Ordered {
      * @return
      */
     private Mono<Void> setUnauthorizedResponse(ServerWebExchange exchange, String msg) {
+        ResultBean resultBean = ResultBean.fireFail();
         ServerHttpResponse response = exchange.getResponse();
         response.getHeaders().setContentType(MediaType.APPLICATION_JSON);
         response.setStatusCode(HttpStatus.OK);
@@ -104,7 +106,7 @@ public class AuthFilter implements GlobalFilter, Ordered {
 
         return response.writeWith(Mono.fromSupplier(() -> {
             DataBufferFactory bufferFactory = response.bufferFactory();
-            return bufferFactory.wrap(JSON.toJSONBytes(ResultBean.fireFail().setCode(com.yxt.yyd.common.core.constant.HttpStatus.OVERDUE).setMsg(msg)));
+            return bufferFactory.wrap(JSON.toJSONBytes(resultBean.setCode(StatusEnum.OVERDUE.getCode()).setMsg(msg)));
         }));
     }
 
@@ -120,4 +122,5 @@ public class AuthFilter implements GlobalFilter, Ordered {
     public int getOrder() {
         return 0;
     }
+
 }

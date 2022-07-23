@@ -4,7 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import com.yxt.yyd.common.core.result.ResultBean;
 import com.yxt.yyd.common.jdbc.service.MybatisBaseService;
 import com.yxt.yyd.system.api.domain.area.SystemArea;
-import com.yxt.yyd.system.api.domain.area.dto.AreaDto;
+import com.yxt.yyd.system.api.domain.area.AreaDto;
 import com.yxt.yyd.system.biz.mapper.AreaMapper;
 import com.yxt.yyd.system.biz.service.IAreaService;
 import org.apache.commons.lang3.StringUtils;

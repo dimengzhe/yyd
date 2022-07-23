@@ -1,4 +1,4 @@
-package com.yxt.yyd.system.api.domain.area.dto;
+package com.yxt.yyd.system.api.domain.area;
 
 import io.swagger.annotations.ApiModelProperty;
 
@@ -10,7 +10,7 @@ import java.io.Serializable;
  * @Date 2022/6/20 23:00
  * @Description 区域-保存
  */
-public class AreaDto implements Serializable {
+public class SystemAreaDto implements Serializable {
 
     private static final long serialVersionUID = -5321692236199323442L;
 
@@ -19,7 +19,7 @@ public class AreaDto implements Serializable {
     private String name;
     @ApiModelProperty(value = "区划代码")
     private String code;
-    @ApiModelProperty(value = "父级sid")
+    @ApiModelProperty(value = "父级sid", example = "0")
     private String parentSid;
     @ApiModelProperty(value = "级别")
     private Integer level;

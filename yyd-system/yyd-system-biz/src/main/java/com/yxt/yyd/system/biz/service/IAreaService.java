@@ -1,7 +1,7 @@
 package com.yxt.yyd.system.biz.service;
 
 import com.yxt.yyd.common.core.result.ResultBean;
-import com.yxt.yyd.system.api.domain.area.dto.AreaDto;
+import com.yxt.yyd.system.api.domain.area.AreaDto;
 
 /**
  * @Author dimengzhe

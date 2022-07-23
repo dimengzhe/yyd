@@ -2,7 +2,7 @@ package com.yxt.yyd.system.biz.controller;
 
 import com.yxt.yyd.common.core.result.ResultBean;
 import com.yxt.yyd.common.utils.ValidationUtil;
-import com.yxt.yyd.system.api.domain.area.dto.AreaDto;
+import com.yxt.yyd.system.api.domain.area.AreaDto;
 import com.yxt.yyd.system.api.feigns.AreaFeign;
 import com.yxt.yyd.system.biz.service.IAreaService;
 import org.apache.commons.lang3.StringUtils;

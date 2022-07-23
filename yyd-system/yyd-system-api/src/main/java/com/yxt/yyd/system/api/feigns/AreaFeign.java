@@ -1,7 +1,7 @@
 package com.yxt.yyd.system.api.feigns;
 
 import com.yxt.yyd.common.core.result.ResultBean;
-import com.yxt.yyd.system.api.domain.area.dto.AreaDto;
+import com.yxt.yyd.system.api.domain.area.AreaDto;
 import com.yxt.yyd.system.api.fallback.AreaFeignFallback;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
