@@ -4,7 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import com.yxt.yyd.common.core.result.ResultBean;
 import com.yxt.yyd.common.jdbc.service.MybatisBaseService;
 import com.yxt.yyd.system.api.domain.area.SystemArea;
-import com.yxt.yyd.system.api.domain.area.AreaDto;
+import com.yxt.yyd.system.api.domain.area.SystemAreaDto;
 import com.yxt.yyd.system.biz.mapper.AreaMapper;
 import com.yxt.yyd.system.biz.service.IAreaService;
 import org.apache.commons.lang3.StringUtils;
@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
 public class AreaServiceImpl extends MybatisBaseService<AreaMapper, SystemArea> implements IAreaService {
 
     @Override
-    public ResultBean<String> saveOrUpdate(AreaDto dto) {
+    public ResultBean<String> saveOrUpdate(SystemAreaDto dto) {
         ResultBean<String> rb = ResultBean.fireFail();
         String dtoSid = dto.getSid();
         if (StringUtils.isBlank(dtoSid)) {

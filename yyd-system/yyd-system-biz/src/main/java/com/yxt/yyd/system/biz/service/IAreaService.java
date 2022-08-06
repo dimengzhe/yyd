@@ -1,7 +1,7 @@
 package com.yxt.yyd.system.biz.service;
 
 import com.yxt.yyd.common.core.result.ResultBean;
-import com.yxt.yyd.system.api.domain.area.AreaDto;
+import com.yxt.yyd.system.api.domain.area.SystemAreaDto;
 
 /**
  * @Author dimengzhe
@@ -9,5 +9,5 @@ import com.yxt.yyd.system.api.domain.area.AreaDto;
  * @Description
  */
 public interface IAreaService {
-    ResultBean<String> saveOrUpdate(AreaDto dto);
+    ResultBean<String> saveOrUpdate(SystemAreaDto dto);
 }

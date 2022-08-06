@@ -1,7 +1,7 @@
 package com.yxt.yyd.system.api.feigns;
 
 import com.yxt.yyd.common.core.result.ResultBean;
-import com.yxt.yyd.system.api.domain.area.AreaDto;
+import com.yxt.yyd.system.api.domain.area.SystemAreaDto;
 import com.yxt.yyd.system.api.fallback.AreaFeignFallback;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -31,5 +31,5 @@ public interface AreaFeign {
     @ApiOperation(value = "区域-保存")
     @ResponseBody
     @PostMapping(value = "saveOrUpdate")
-    ResultBean<String> saveOrUpdate(@RequestBody AreaDto dto);
+    ResultBean<String> saveOrUpdate(@RequestBody SystemAreaDto dto);
 }

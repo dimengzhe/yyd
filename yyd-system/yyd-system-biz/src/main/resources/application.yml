@@ -34,7 +34,7 @@ mybatis-plus:
     map-underscore-to-camel-case: false
     cache-enabled: true
     call-setters-on-nulls: true
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
 feign:
   client:
     config:

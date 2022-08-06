@@ -3,6 +3,7 @@ package com.yxt.yyd.common.base.config.logging;
 import cn.hutool.core.bean.BeanUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
+import org.apache.commons.lang3.StringUtils;
 import org.minbox.framework.logging.client.LoggingFactoryBean;
 import org.minbox.framework.logging.client.notice.LoggingNotice;
 import org.minbox.framework.logging.core.MinBoxLog;
@@ -34,15 +35,19 @@ public class LoggingLocalNotice implements LoggingNotice {
         if (this.loggingFactoryBean.isShowConsoleLog()) {
             logger.info("=====接口开始：" + minBoxLog.getRequestUri());
             Log log = new Log();
-            JSONObject jsonObject = JSONObject.parseObject(minBoxLog.getRequestBody());
-            Map<String, Object> map = JSONObject.parseObject(jsonObject.toJSONString(), new TypeReference<Map<String, Object>>() {
-            });
+            if (StringUtils.isNotBlank(minBoxLog.getRequestBody())) {
+                JSONObject jsonObject = JSONObject.parseObject(minBoxLog.getRequestBody());
+                Map<String, Object> map = JSONObject.parseObject(jsonObject.toJSONString(), new TypeReference<Map<String, Object>>() {
+                });
+                log.setRequestBodyN(map);
+                if (StringUtils.isNotBlank(minBoxLog.getResponseBody())) {
+                    jsonObject = JSONObject.parseObject(minBoxLog.getResponseBody());
+                    map = JSONObject.parseObject(jsonObject.toJSONString(), new TypeReference<Map<String, Object>>() {
+                    });
+                    log.setResponseBodyN(map);
+                }
+            }
             log.setHttpStatus(minBoxLog.getHttpStatus());
-            log.setRequestBodyN(map);
-            jsonObject = JSONObject.parseObject(minBoxLog.getResponseBody());
-            map = JSONObject.parseObject(jsonObject.toJSONString(), new TypeReference<Map<String, Object>>() {
-            });
-            log.setResponseBodyN(map);
             BeanUtil.copyProperties(minBoxLog, log);
 //            logger.info("Request Uri：{}， Logging：\n{}", minBoxLog.getRequestUri(), this.loggingFactoryBean.isFormatConsoleLog() ? JsonUtils.beautifyJson(minBoxLog) : JsonUtils.toJsonString(minBoxLog));
             logger.info("Logging：\n{}", this.loggingFactoryBean.isFormatConsoleLog() ? JsonUtils.beautifyJson(log) : JsonUtils.toJsonString(log));
