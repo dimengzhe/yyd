@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import java.nio.charset.Charset;
 import java.util.Map;
 
 /**
@@ -34,9 +35,11 @@ public class LoggingLocalNotice implements LoggingNotice {
     public void notice(MinBoxLog minBoxLog) {
         if (this.loggingFactoryBean.isShowConsoleLog()) {
             logger.info("=====接口开始：" + minBoxLog.getRequestUri());
+            logger.info("=====defaultCharset：" + Charset.defaultCharset());
             Log log = new Log();
             if (StringUtils.isNotBlank(minBoxLog.getRequestBody())) {
-                JSONObject jsonObject = JSONObject.parseObject(minBoxLog.getRequestBody());
+                String requestBody = minBoxLog.getRequestBody();
+                JSONObject jsonObject = JSONObject.parseObject(requestBody);
                 Map<String, Object> map = JSONObject.parseObject(jsonObject.toJSONString(), new TypeReference<Map<String, Object>>() {
                 });
                 log.setRequestBodyN(map);

@@ -45,7 +45,6 @@ public class RedisConfig {
     private int redisPoolMinIdle;
     @Value("${spring.redis.database}")
     private int database;
-
     @Bean
     public JedisPoolConfig getJedisPoolConfig() {
         JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
@@ -57,6 +56,7 @@ public class RedisConfig {
         jedisPoolConfig.setMaxWaitMillis(redisPoolMaxWait);
         //连接池的最大数据库连接数
         jedisPoolConfig.setMaxTotal(redisPoolMaxActive);
+//        jedisPool = new JedisPool(jedisPoolConfig, host, port, timeout, password);
         return jedisPoolConfig;
     }
 
@@ -100,4 +100,28 @@ public class RedisConfig {
         redisTemplate.afterPropertiesSet();
         return redisTemplate;
     }
+
+
+    //获取Redis资源
+    /*public synchronized static Jedis getJedis() {
+        try {
+            if (jedisPool != null) {
+                Jedis jedis = jedisPool.getResource();
+                return jedis;
+            } else {
+                return null;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    //释放redis资源
+    @SuppressWarnings("deprecation")
+    public synchronized static void releaseConn(Jedis jedis) {
+        if (jedisPool != null) {
+            jedisPool.close();
+        }
+    }*/
 }

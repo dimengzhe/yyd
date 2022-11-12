@@ -1,14 +1,12 @@
-package com.yxt.yyd.common.base.config.utils.file;
+package com.yxt.yyd.demo.api.domain;
 
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
  * @Author dimengzhe
- * @Date 2021/11/7 11:51
- * @Description
+ * @Date 2022/11/6 16:37
+ * @Description 文件上传结果
  */
-@ApiModel(description = "文件上传结果")
 public class FileUploadResult {
 
     @ApiModelProperty("上传的原文件名")
@@ -70,9 +68,6 @@ public class FileUploadResult {
 
     public void setHeight(int height) {
         this.height = height;
-    }
-
-    public FileUploadResult() {
     }
 
     public FileUploadResult(String sourceFileName, String filePath, String fullUrl, String size, int width, int height) {

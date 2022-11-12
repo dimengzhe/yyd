@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.yxt</groupId>
+        <artifactId>yyd</artifactId>
+        <version>0.0.1</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>yyd-file</artifactId>
+    <groupId>com.yxt.yyd</groupId>
+    <version>0.0.1</version>
+    <modules>
+        <module>yyd-file-api</module>
+        <module>yyd-file-biz</module>
+    </modules>
+
+
+    <packaging>pom</packaging>
+    <description>宇运动-文件相关</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+
+    </dependencies>
+
+
+</project>

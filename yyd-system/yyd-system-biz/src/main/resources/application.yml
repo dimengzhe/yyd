@@ -46,9 +46,9 @@ feign:
 #  hystrix:
 #    enabled: true
 #配置ApiBoot Logging 日志组件
-api:
-  boot:
-    logging:
-      show-console-log: true
-      #实现美化打印请求日志
-      format-console-log-json: true
+#api:
+#  boot:
+#    logging:
+#      show-console-log: true
+#      #实现美化打印请求日志
+#      format-console-log-json: true

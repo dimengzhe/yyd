@@ -1,6 +1,7 @@
 package com.yxt.yyd.system.biz.controller;
 
 import com.yxt.yyd.common.core.result.ResultBean;
+import com.yxt.yyd.common.redis.service.RepeatSubmit;
 import com.yxt.yyd.system.api.domain.area.SystemAreaDto;
 import com.yxt.yyd.system.api.feigns.AreaFeign;
 import com.yxt.yyd.system.biz.service.IAreaService;
@@ -21,8 +22,9 @@ public class AreaController implements AreaFeign {
     private IAreaService areaService;
 
     @Override
+    @RepeatSubmit
     public ResultBean<String> saveOrUpdate(SystemAreaDto dto) {
-       ResultBean rb = ResultBean.fireFail();
+        ResultBean rb = ResultBean.fireFail();
         /*String errorMsg = ValidationUtil.validateOne(dto);
         if (StringUtils.isNotBlank(errorMsg)) {
             return rb.setMsg(errorMsg);

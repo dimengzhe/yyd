@@ -8,10 +8,22 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: yyd-system
+        - id: yyd-system    #路由的ID，没有固定规则但要求唯一，建议配合服务名
           predicates:
-            - Path= /system/**
-          uri: lb://yyd-system
+            - Path= /system/**  #断言,路径相匹配的进行路由
+          uri: lb://yyd-system  # 微服务名称
+          filters:
+            - StripPrefix=1
+        - id: yyd-demo
+          predicates:
+            - Path= /demo/**
+          uri: lb://yyd-demo
+          filters:
+            - StripPrefix=1
+        - id: yyd-file
+          predicates:
+            - Path= /files/**
+          uri: lb://yyd-file
           filters:
             - StripPrefix=1
 hystrix:
@@ -22,10 +34,10 @@ hystrix:
           strategy: SEMAPHORE
           thread:
             timeoutInMilliseconds: 300000
-
+#自定义白名单
 ignore:
   whites:
-    - /system/file/upload  #上传文件
+    - /files/v1/file/upload  #上传文件
 
 
 

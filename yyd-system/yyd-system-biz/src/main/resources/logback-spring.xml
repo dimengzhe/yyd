@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration scan="true">
+<configuration>
     <!-- 从application.yml 中注入变量  -->
     <property name="LOG_PATH" value="./logs"/>
     <property name="APPDIR" value="system"/>
@@ -22,7 +22,7 @@
         <append>true</append>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger Line:%-3L - %msg%n</pattern>
-            <charset>utf-8</charset>
+            <!--<charset>utf-8</charset>-->
         </encoder>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>error</level>
@@ -43,7 +43,7 @@
         <append>true</append>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger Line:%-3L - %msg%n</pattern>
-            <charset>utf-8</charset>        </encoder>
+            <!--<charset>utf-8</charset> -->       </encoder>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>warn</level>
             <onMatch>ACCEPT</onMatch>
@@ -64,7 +64,7 @@
         <append>true</append>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger Line:%-3L - %msg%n</pattern>
-            <charset>utf-8</charset>
+            <!--<charset>utf-8</charset>-->
         </encoder>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>info</level>

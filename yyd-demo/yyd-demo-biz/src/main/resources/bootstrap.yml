@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: yyd-demo
+  #公共配置文件
+  profiles:
+    include: common
+
+server:
+  port: 1003
+

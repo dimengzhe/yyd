@@ -1,11 +1,11 @@
-package com.yxt.yyd.common.base.config.utils.file;
+package com.yxt.yyd.file.utils;
 
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.RandomUtil;
 import com.yxt.yyd.common.core.result.ResultBean;
+import com.yxt.yyd.demo.api.domain.FileUploadResult;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
@@ -20,13 +20,12 @@ import java.util.List;
 
 /**
  * @Author dimengzhe
- * @Date 2021/11/7 11:48
- * @Description 文件上传工具类
+ * @Date 2022/11/6 16:43
+ * @Description
  */
 @Component
+@Slf4j
 public class FileUtils {
-
-    private static final Logger L = LoggerFactory.getLogger(FileUtils.class);
 
     @Value("${image.upload.path:static/upload/}")
     private String uploadPath;
@@ -53,14 +52,18 @@ public class FileUtils {
     public ResultBean<FileUploadResult> uploadFile(MultipartFile file, boolean hasDateDir, String relativePath) {
         ResultBean<FileUploadResult> resultBean = ResultBean.fireFail();
         //文件大小
+        //宽度
         int width = 0;
+        //高度
         int heigh = 0;
+        //大小
         long size = file.getSize();
         String fileSize = getPrintSize(size);
         // 文件名
         String fileName = file.getOriginalFilename();
         // 后缀名
         String suffixName = fileName.substring(fileName.lastIndexOf("."));
+        //前缀名
         String prefixName = fileName.substring(0, fileName.indexOf("."));
         // 新文件名:文件原名称 + ‘-’ + 生成的时间戳 2021.10.16
         String filePath = prefixName + "_" + dateFileName() + suffixName;
@@ -96,11 +99,6 @@ public class FileUtils {
             heigh = image.getHeight(imageIcon.getImageObserver());
         }
         try {
-//            BufferedImage bufferedImage = ImageIO.read(file.getInputStream());
-//            if (bufferedImage != null) {
-//                width = bufferedImage.getWidth();
-//                heigh = bufferedImage.getHeight();
-//            }
             file.transferTo(destFile);
         } catch (IOException e) {
             e.printStackTrace();
@@ -109,6 +107,8 @@ public class FileUtils {
         FileUploadResult fileUploadResult =
                 new FileUploadResult(fileName, filePath, fullUrl, fileSize, width, heigh);
         return resultBean.success().setData(fileUploadResult);
+
+
     }
 
     public static String getPrintSize(long size) {
@@ -141,6 +141,5 @@ public class FileUtils {
     private String dateFileName() {
         return DateUtil.format(new Date(), "yyyyMMddHHmmssSSS") + RandomUtil.randomNumbers(3);
     }
-
 
 }
